@@ -1,23 +1,8 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, ArrowRight, Loader2, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
-    const [email, setEmail] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!email) return;
-        setIsSubmitting(true);
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSubmitted(true);
-            setEmail('');
-        }, 1500);
-    };
-
     return (
         <section className="relative min-h-screen flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden bg-[#1A0F0A]">
             {/* Background with darker overlay for better text readability */}
@@ -30,15 +15,41 @@ export const Hero: React.FC = () => {
 
             <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center pt-20">
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-8"
+                    initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ duration: 1, type: "spring" }}
+                    className="mb-10"
                 >
-                    {/* Logo Placeholder or Image */}
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-[#D4AF37] flex items-center justify-center bg-black/40 backdrop-blur-sm mb-4 mx-auto">
-                        <span className="text-3xl md:text-5xl font-serif text-[#D4AF37]">RC</span>
-                    </div>
+                    {/* Hand-crafted Premium SVG Logo */}
+                    <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto drop-shadow-[0_0_25px_rgba(212,175,55,0.4)]">
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stopColor="#F4D03F" />
+                                <stop offset="50%" stopColor="#D4AF37" />
+                                <stop offset="100%" stopColor="#9C7C1A" />
+                            </linearGradient>
+                        </defs>
+
+                        {/* Outer Ring with decorative dots */}
+                        <circle cx="100" cy="100" r="90" stroke="url(#goldGrad)" strokeWidth="2" fill="none" />
+                        <circle cx="100" cy="100" r="82" stroke="url(#goldGrad)" strokeWidth="1" strokeDasharray="4 4" opacity="0.6" />
+
+                        {/* Crown Icon */}
+                        <path d="M60 90 L70 120 H130 L140 90 L120 100 L100 70 L80 100 L60 90 Z" fill="url(#goldGrad)" stroke="#1A0F0A" strokeWidth="1" />
+                        <circle cx="60" cy="85" r="4" fill="#F4D03F" />
+                        <circle cx="80" cy="95" r="3" fill="#F4D03F" />
+                        <circle cx="100" cy="65" r="5" fill="#F4D03F" />
+                        <circle cx="120" cy="95" r="3" fill="#F4D03F" />
+                        <circle cx="140" cy="85" r="4" fill="#F4D03F" />
+
+                        {/* Monogram Text */}
+                        <text x="100" y="155" fontFamily="'Playfair Display', serif" fontSize="48" fontWeight="bold" fill="url(#goldGrad)" textAnchor="middle" letterSpacing="0.05em" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
+                            RC
+                        </text>
+
+                        {/* Tea Leaf Accent */}
+                        <path d="M100 130 Q115 130 120 120 Q110 140 100 140 Q90 140 80 120 Q85 130 100 130" fill="url(#goldGrad)" opacity="0.8" />
+                    </svg>
                 </motion.div>
 
                 <motion.div

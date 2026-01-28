@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, ArrowRight, Loader2, Instagram, Twitter, Facebook } from 'lucide-react';
+import { ArrowRight, Loader2, Instagram, Twitter, Facebook } from 'lucide-react';
 
 export const Newsletter: React.FC = () => {
     const [email, setEmail] = useState('');
