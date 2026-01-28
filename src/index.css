@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --color-gold: #D4AF37;
+    --color-gold-light: #F4D03F;
+    --color-brown-dark: #1A0F0A;
+    --color-brown: #2C1E16;
+    --color-cream: #FFF8E7;
+    --color-cream-dark: #E6D5B8;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-brown-dark);
+    color: var(--color-cream);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+@theme {
+    --color-gold: #D4AF37;
+    --color-gold-light: #F4D03F;
+    --color-brown-dark: #1A0F0A;
+    --color-brown: #2C1E16;
+    --color-cream: #FFF8E7;
+    --color-cream-dark: #E6D5B8;
+}
+
+@utility royal-gradient {
+    background: linear-gradient(135deg, rgba(26, 15, 10, 0.95) 0%, rgba(44, 30, 22, 0.8) 100%);
+}
+
+@utility gold-text {
+    background: linear-gradient(to bottom, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@utility gold-border {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+@utility gold-glow {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+@utility blur-backdrop {
+    backdrop-filter: blur(10px);
+}
+
+@utility text-shadow-gold {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
